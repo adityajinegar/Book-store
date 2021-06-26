@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Book store built using React, Apollo, Node, Express, GraphQL, MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/adityajinegar/Book-store.git"
+  },
+  "author": "Aditya Jinegar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adityajinegar/Book-store/issues"
+  },
+  "homepage": "https://github.com/adityajinegar/Book-store#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
