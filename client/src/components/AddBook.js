@@ -1,41 +1,55 @@
 import React from "react";
-import { gql, useQuery } from "@apollo/client";
-
-const GET_AUTHORS = gql`
-  query GetAuthors {
-    authors {
-      id
-      name
-    }
-  }
-`;
+import { useState } from "react";
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_AUTHORS, ADD_BOOK_MUTATION } from "../queries/queries";
 
 function AddBook() {
+  const [name, setName] = useState("");
+  const [genre, setGenre] = useState("");
+  const [authorId, setAuthorId] = useState("");
+
+  const [addBookMutation, { dataMutation }] = useMutation(ADD_BOOK_MUTATION);
+
   const { loading, error, data } = useQuery(GET_AUTHORS);
 
   if (error) return `Error: ${error.message}`;
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addBookMutation({
+      variables: {
+        name: name,
+        genre: genre,
+        authorId: authorId,
+      },
+    });
+  };
+
   return (
-    <form id="add-book">
+    <form id="add-book" onSubmit={handleSubmit}>
       <div className="field">
         <label>Book Name: </label>
-        <input type="text" />
+        <input type="text" onChange={(e) => setName(e.target.value)} />
       </div>
 
       <div className="field">
         <label>Genre: </label>
-        <input type="text" />
+        <input type="text" onChange={(e) => setGenre(e.target.value)} />
       </div>
 
       <div className="field">
         <label>Author: </label>
-        <select>
+        <select onChange={(e) => setAuthorId(e.target.value)}>
           <option>Select Author</option>
           {loading ? (
             <option disabled>Loading...</option>
           ) : (
             data.authors.map((author) => (
-              <option key={author.id} value={author.id}>
+              <option
+                key={author.id}
+                value={author.id}
+                onChange={(e) => setAuthorId(e.target.value)}
+              >
                 {author.name}
               </option>
             ))
