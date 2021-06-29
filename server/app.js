@@ -8,6 +8,8 @@ const schema = require("./schema/schema");
 
 const app = express();
 
+const cors = require("cors");
+
 // connect to mongodb database
 mongoose.connect(
   "mongodb+srv://Aditya:Aditya1234@cluster0.grhpa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
@@ -16,6 +18,9 @@ mongoose.connect(
 mongoose.connection.once("open", () => {
   console.log("Connected to database");
 });
+
+// allow cross-origin requests
+app.use(cors());
 
 app.use(
   "/graphql",
