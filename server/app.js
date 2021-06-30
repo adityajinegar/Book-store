@@ -10,6 +10,14 @@ const app = express();
 
 const cors = require("cors");
 
+import { ApolloServer } from "apollo-server";
+
+const server = new ApolloServer({
+  subscriptions: {
+    path: "/subscriptions",
+  },
+});
+
 // connect to mongodb database
 mongoose.connect(
   "mongodb+srv://Aditya:Aditya1234@cluster0.grhpa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
@@ -29,6 +37,8 @@ app.use(
     graphiql: true,
   })
 );
+
+app.use("/subscriptions");
 
 app.listen(3000, () => {
   console.log("Now listening for requests on port 3000");
