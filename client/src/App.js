@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
 import { split, HttpLink } from "@apollo/client";
@@ -6,6 +6,7 @@ import { getMainDefinition } from "@apollo/client/utilities";
 
 import BookList from "./components/BookList";
 import AddBook from "./components/AddBook";
+import NewBookNotification from "./components/NewBookNotification";
 
 const httpLink = new HttpLink({
   uri: "http://localhost:3000/graphql",
@@ -43,6 +44,7 @@ function App() {
       <div id="main">
         <h1>Aditya's Reading List</h1>
         <BookList></BookList>
+        <NewBookNotification></NewBookNotification>
         <AddBook></AddBook>
       </div>
     </ApolloProvider>
