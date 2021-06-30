@@ -10,7 +10,7 @@ function AddBook() {
 
   const [addBookMutation, { dataMutation }] = useMutation(ADD_BOOK_MUTATION);
 
-  const { loading, error, data, subscribeToMore } = useQuery(GET_AUTHORS);
+  const { loading, error, data } = useQuery(GET_AUTHORS);
 
   if (error) return `Error: ${error.message}`;
 
