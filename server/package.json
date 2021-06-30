@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/adityajinegar/Book-store#readme",
   "dependencies": {
+    "apollo-server": "^2.25.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
