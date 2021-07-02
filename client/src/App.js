@@ -6,14 +6,14 @@ import AddBook from "./components/AddBook";
 
 // apollo client setup
 const client = new ApolloClient({
-  uri: "http://localhost:3000/graphql",
+  uri: "http://localhost:4000/graphql",
   cache: new InMemoryCache(),
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div id="main">
+      <div id="root">
         <h1>Aditya's Reading List</h1>
         <BookList></BookList>
         <AddBook></AddBook>
