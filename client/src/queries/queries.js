@@ -3,17 +3,17 @@ import { gql } from "@apollo/client";
 const GET_BOOKS = gql`
   query GetBooks {
     books {
-      id
       name
+      id
     }
   }
 `;
 
 const GET_AUTHORS = gql`
-  query GetAuthors {
+  {
     authors {
-      id
       name
+      id
     }
   }
 `;
@@ -28,7 +28,7 @@ const ADD_BOOK_MUTATION = gql`
 `;
 
 const GET_SINGLE_BOOK = gql`
-  query ($id: ID!) {
+  query GetBook($id: ID) {
     book(id: $id) {
       id
       name
