@@ -6,8 +6,8 @@ import AddBook from "./components/AddBook";
 
 // apollo client setup
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
   uri: "http://localhost:3000/graphql",
+  cache: new InMemoryCache(),
 });
 
 function App() {
