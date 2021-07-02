@@ -19,7 +19,7 @@ const BookType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
-    authors: {
+    author: {
       type: AuthorType,
       resolve(parent, args) {
         // return authors.find((author) => author.id == parent.authorId);
@@ -48,7 +48,7 @@ const AuthorType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
-    books: {
+    book: {
       type: BookType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
@@ -57,7 +57,7 @@ const RootQuery = new GraphQLObjectType({
         return Book.findById(args.id);
       },
     },
-    authors: {
+    author: {
       type: AuthorType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
