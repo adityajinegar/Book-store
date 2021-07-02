@@ -19,6 +19,7 @@ mongoose.connection.once("open", () => {
   console.log("Connected to database");
 });
 
+
 // allow cross-origin requests
 app.use(cors());
 
@@ -30,6 +31,6 @@ app.use(
   })
 );
 
-app.listen(3000, () => {
-  console.log("Now listening for requests on port 3001");
+app.listen(4000, () => {
+  console.log("Now listening for requests on port 4000");
 });
